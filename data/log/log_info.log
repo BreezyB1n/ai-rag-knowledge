@@ -1,0 +1,550 @@
+25-05-03.11:56:20.812 [main            ] INFO  Application            - Starting Application using Java 17.0.9 with PID 41524 (/Users/zhangbin/IdeaProjects/ai-rag-knowledge-mec202/dev-tech-app/target/classes started by zhangbin in /Users/zhangbin/IdeaProjects/ai-rag-knowledge-mec202)
+25-05-03.11:56:20.812 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+25-05-03.11:56:21.252 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+25-05-03.11:56:21.253 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+25-05-03.11:56:21.264 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+25-05-03.11:56:21.555 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port 8090 (http)
+25-05-03.11:56:21.559 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8090"]
+25-05-03.11:56:21.560 [main            ] INFO  StandardService        - Starting service [Tomcat]
+25-05-03.11:56:21.560 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/10.1.19]
+25-05-03.11:56:21.588 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+25-05-03.11:56:21.588 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 666 ms
+25-05-03.11:56:21.701 [main            ] INFO  Version                - Redisson 3.44.0
+25-05-03.11:56:21.717 [main            ] WARN  DnsServerAddressStreamProviders - Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+25-05-03.11:56:21.843 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 117.72.44.114/117.72.44.114:16379
+25-05-03.11:56:22.103 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 117.72.44.114/117.72.44.114:16379
+25-05-03.11:56:22.469 [main            ] WARN  AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'openAiChatClient' defined in class path resource [org/springframework/ai/autoconfigure/openai/OpenAiAutoConfiguration.class]: Failed to instantiate [org.springframework.ai.openai.OpenAiChatClient]: Factory method 'openAiChatClient' threw exception with message: OpenAI API key must be set
+25-05-03.11:56:22.476 [main            ] INFO  StandardService        - Stopping service [Tomcat]
+25-05-03.11:56:22.484 [main            ] INFO  ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+25-05-03.11:56:22.490 [main            ] ERROR SpringApplication      - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'openAiChatClient' defined in class path resource [org/springframework/ai/autoconfigure/openai/OpenAiAutoConfiguration.class]: Failed to instantiate [org.springframework.ai.openai.OpenAiChatClient]: Factory method 'openAiChatClient' threw exception with message: OpenAI API key must be set
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:651)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:639)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1335)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1165)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:959)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.b1n.dev.tech.Application.main(Application.java:11)
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.ai.openai.OpenAiChatClient]: Factory method 'openAiChatClient' threw exception with message: OpenAI API key must be set
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:177)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:647)
+	... 19 common frames omitted
+Caused by: java.lang.IllegalArgumentException: OpenAI API key must be set
+	at org.springframework.util.Assert.hasText(Assert.java:240)
+	at org.springframework.ai.autoconfigure.openai.OpenAiAutoConfiguration.openAiApi(OpenAiAutoConfiguration.java:96)
+	at org.springframework.ai.autoconfigure.openai.OpenAiAutoConfiguration.openAiChatClient(OpenAiAutoConfiguration.java:64)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:140)
+	... 20 common frames omitted
+25-05-03.11:57:16.238 [main            ] INFO  Application            - Starting Application using Java 17.0.9 with PID 41669 (/Users/zhangbin/IdeaProjects/ai-rag-knowledge-mec202/dev-tech-app/target/classes started by zhangbin in /Users/zhangbin/IdeaProjects/ai-rag-knowledge-mec202)
+25-05-03.11:57:16.239 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+25-05-03.11:57:16.629 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+25-05-03.11:57:16.630 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+25-05-03.11:57:16.642 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+25-05-03.11:57:16.922 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port 8090 (http)
+25-05-03.11:57:16.926 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8090"]
+25-05-03.11:57:16.926 [main            ] INFO  StandardService        - Starting service [Tomcat]
+25-05-03.11:57:16.926 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/10.1.19]
+25-05-03.11:57:16.956 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+25-05-03.11:57:16.956 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 610 ms
+25-05-03.11:57:17.068 [main            ] INFO  Version                - Redisson 3.44.0
+25-05-03.11:57:17.087 [main            ] WARN  DnsServerAddressStreamProviders - Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+25-05-03.11:57:17.219 [redisson-netty-1-6] INFO  ConnectionsHolder      - 1 connections initialized for 117.72.44.114/117.72.44.114:16379
+25-05-03.11:57:17.463 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 117.72.44.114/117.72.44.114:16379
+25-05-03.11:57:17.761 [main            ] WARN  AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'openAiChatClient' defined in class path resource [org/springframework/ai/autoconfigure/openai/OpenAiAutoConfiguration.class]: Failed to instantiate [org.springframework.ai.openai.OpenAiChatClient]: Factory method 'openAiChatClient' threw exception with message: OpenAI API key must be set
+25-05-03.11:57:17.767 [main            ] INFO  StandardService        - Stopping service [Tomcat]
+25-05-03.11:57:17.776 [main            ] INFO  ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+25-05-03.11:57:17.782 [main            ] ERROR SpringApplication      - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'openAiChatClient' defined in class path resource [org/springframework/ai/autoconfigure/openai/OpenAiAutoConfiguration.class]: Failed to instantiate [org.springframework.ai.openai.OpenAiChatClient]: Factory method 'openAiChatClient' threw exception with message: OpenAI API key must be set
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:651)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:639)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1335)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1165)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:959)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.b1n.dev.tech.Application.main(Application.java:11)
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.ai.openai.OpenAiChatClient]: Factory method 'openAiChatClient' threw exception with message: OpenAI API key must be set
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:177)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:647)
+	... 19 common frames omitted
+Caused by: java.lang.IllegalArgumentException: OpenAI API key must be set
+	at org.springframework.util.Assert.hasText(Assert.java:240)
+	at org.springframework.ai.autoconfigure.openai.OpenAiAutoConfiguration.openAiApi(OpenAiAutoConfiguration.java:96)
+	at org.springframework.ai.autoconfigure.openai.OpenAiAutoConfiguration.openAiChatClient(OpenAiAutoConfiguration.java:64)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:140)
+	... 20 common frames omitted
+25-05-03.11:58:05.377 [main            ] INFO  Application            - Starting Application using Java 17.0.9 with PID 41806 (/Users/zhangbin/IdeaProjects/ai-rag-knowledge-mec202/dev-tech-app/target/classes started by zhangbin in /Users/zhangbin/IdeaProjects/ai-rag-knowledge-mec202)
+25-05-03.11:58:05.378 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+25-05-03.11:58:05.792 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+25-05-03.11:58:05.793 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+25-05-03.11:58:05.807 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+25-05-03.11:58:06.157 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port 8090 (http)
+25-05-03.11:58:06.163 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8090"]
+25-05-03.11:58:06.163 [main            ] INFO  StandardService        - Starting service [Tomcat]
+25-05-03.11:58:06.164 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/10.1.19]
+25-05-03.11:58:06.199 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+25-05-03.11:58:06.199 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 727 ms
+25-05-03.11:58:06.344 [main            ] INFO  Version                - Redisson 3.44.0
+25-05-03.11:58:06.365 [main            ] WARN  DnsServerAddressStreamProviders - Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+25-05-03.11:58:06.494 [redisson-netty-1-6] INFO  ConnectionsHolder      - 1 connections initialized for 117.72.44.114/117.72.44.114:16379
+25-05-03.11:58:06.732 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 117.72.44.114/117.72.44.114:16379
+25-05-03.11:58:07.052 [main            ] WARN  AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'openAiChatClient' defined in class path resource [org/springframework/ai/autoconfigure/openai/OpenAiAutoConfiguration.class]: Failed to instantiate [org.springframework.ai.openai.OpenAiChatClient]: Factory method 'openAiChatClient' threw exception with message: OpenAI API key must be set
+25-05-03.11:58:07.059 [main            ] INFO  StandardService        - Stopping service [Tomcat]
+25-05-03.11:58:07.067 [main            ] INFO  ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+25-05-03.11:58:07.073 [main            ] ERROR SpringApplication      - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'openAiChatClient' defined in class path resource [org/springframework/ai/autoconfigure/openai/OpenAiAutoConfiguration.class]: Failed to instantiate [org.springframework.ai.openai.OpenAiChatClient]: Factory method 'openAiChatClient' threw exception with message: OpenAI API key must be set
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:651)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:639)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1335)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1165)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:959)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.b1n.dev.tech.Application.main(Application.java:11)
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.ai.openai.OpenAiChatClient]: Factory method 'openAiChatClient' threw exception with message: OpenAI API key must be set
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:177)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:647)
+	... 19 common frames omitted
+Caused by: java.lang.IllegalArgumentException: OpenAI API key must be set
+	at org.springframework.util.Assert.hasText(Assert.java:240)
+	at org.springframework.ai.autoconfigure.openai.OpenAiAutoConfiguration.openAiApi(OpenAiAutoConfiguration.java:96)
+	at org.springframework.ai.autoconfigure.openai.OpenAiAutoConfiguration.openAiChatClient(OpenAiAutoConfiguration.java:64)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:140)
+	... 20 common frames omitted
+25-05-03.11:58:49.721 [main            ] INFO  Application            - Starting Application using Java 17.0.9 with PID 41951 (/Users/zhangbin/IdeaProjects/ai-rag-knowledge-mec202/dev-tech-app/target/classes started by zhangbin in /Users/zhangbin/IdeaProjects/ai-rag-knowledge-mec202)
+25-05-03.11:58:49.722 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+25-05-03.11:58:50.083 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+25-05-03.11:58:50.084 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+25-05-03.11:58:50.096 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+25-05-03.11:58:50.383 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port 8090 (http)
+25-05-03.11:58:50.388 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8090"]
+25-05-03.11:58:50.388 [main            ] INFO  StandardService        - Starting service [Tomcat]
+25-05-03.11:58:50.388 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/10.1.19]
+25-05-03.11:58:50.421 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+25-05-03.11:58:50.421 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 608 ms
+25-05-03.11:58:50.540 [main            ] INFO  Version                - Redisson 3.44.0
+25-05-03.11:58:50.560 [main            ] WARN  DnsServerAddressStreamProviders - Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+25-05-03.11:58:50.684 [redisson-netty-1-5] INFO  ConnectionsHolder      - 1 connections initialized for 117.72.44.114/117.72.44.114:16379
+25-05-03.11:58:50.946 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 117.72.44.114/117.72.44.114:16379
+25-05-03.11:58:51.256 [main            ] WARN  AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'openAiChatClient' defined in class path resource [org/springframework/ai/autoconfigure/openai/OpenAiAutoConfiguration.class]: Failed to instantiate [org.springframework.ai.openai.OpenAiChatClient]: Factory method 'openAiChatClient' threw exception with message: OpenAI API key must be set
+25-05-03.11:58:51.263 [main            ] INFO  StandardService        - Stopping service [Tomcat]
+25-05-03.11:58:51.271 [main            ] INFO  ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+25-05-03.11:58:51.277 [main            ] ERROR SpringApplication      - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'openAiChatClient' defined in class path resource [org/springframework/ai/autoconfigure/openai/OpenAiAutoConfiguration.class]: Failed to instantiate [org.springframework.ai.openai.OpenAiChatClient]: Factory method 'openAiChatClient' threw exception with message: OpenAI API key must be set
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:651)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:639)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1335)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1165)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:959)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.b1n.dev.tech.Application.main(Application.java:11)
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.ai.openai.OpenAiChatClient]: Factory method 'openAiChatClient' threw exception with message: OpenAI API key must be set
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:177)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:647)
+	... 19 common frames omitted
+Caused by: java.lang.IllegalArgumentException: OpenAI API key must be set
+	at org.springframework.util.Assert.hasText(Assert.java:240)
+	at org.springframework.ai.autoconfigure.openai.OpenAiAutoConfiguration.openAiApi(OpenAiAutoConfiguration.java:96)
+	at org.springframework.ai.autoconfigure.openai.OpenAiAutoConfiguration.openAiChatClient(OpenAiAutoConfiguration.java:64)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:140)
+	... 20 common frames omitted
+25-05-03.11:59:47.238 [main            ] INFO  Application            - Starting Application using Java 17.0.9 with PID 42094 (/Users/zhangbin/IdeaProjects/ai-rag-knowledge-mec202/dev-tech-app/target/classes started by zhangbin in /Users/zhangbin/IdeaProjects/ai-rag-knowledge-mec202)
+25-05-03.11:59:47.239 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+25-05-03.11:59:47.629 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+25-05-03.11:59:47.630 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+25-05-03.11:59:47.643 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+25-05-03.11:59:47.979 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port 8090 (http)
+25-05-03.11:59:47.984 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8090"]
+25-05-03.11:59:47.984 [main            ] INFO  StandardService        - Starting service [Tomcat]
+25-05-03.11:59:47.984 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/10.1.19]
+25-05-03.11:59:48.016 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+25-05-03.11:59:48.016 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 676 ms
+25-05-03.11:59:48.146 [main            ] INFO  Version                - Redisson 3.44.0
+25-05-03.11:59:48.164 [main            ] WARN  DnsServerAddressStreamProviders - Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+25-05-03.11:59:48.286 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 117.72.44.114/117.72.44.114:16379
+25-05-03.11:59:48.536 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 117.72.44.114/117.72.44.114:16379
+25-05-03.11:59:48.849 [main            ] WARN  AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'openAiChatClient' defined in class path resource [org/springframework/ai/autoconfigure/openai/OpenAiAutoConfiguration.class]: Failed to instantiate [org.springframework.ai.openai.OpenAiChatClient]: Factory method 'openAiChatClient' threw exception with message: OpenAI API key must be set
+25-05-03.11:59:48.856 [main            ] INFO  StandardService        - Stopping service [Tomcat]
+25-05-03.11:59:48.865 [main            ] INFO  ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+25-05-03.11:59:48.870 [main            ] ERROR SpringApplication      - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'openAiChatClient' defined in class path resource [org/springframework/ai/autoconfigure/openai/OpenAiAutoConfiguration.class]: Failed to instantiate [org.springframework.ai.openai.OpenAiChatClient]: Factory method 'openAiChatClient' threw exception with message: OpenAI API key must be set
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:651)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:639)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1335)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1165)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:959)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.b1n.dev.tech.Application.main(Application.java:11)
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.ai.openai.OpenAiChatClient]: Factory method 'openAiChatClient' threw exception with message: OpenAI API key must be set
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:177)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:647)
+	... 19 common frames omitted
+Caused by: java.lang.IllegalArgumentException: OpenAI API key must be set
+	at org.springframework.util.Assert.hasText(Assert.java:240)
+	at org.springframework.ai.autoconfigure.openai.OpenAiAutoConfiguration.openAiApi(OpenAiAutoConfiguration.java:96)
+	at org.springframework.ai.autoconfigure.openai.OpenAiAutoConfiguration.openAiChatClient(OpenAiAutoConfiguration.java:64)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:140)
+	... 20 common frames omitted
+25-05-03.12:00:54.037 [main            ] INFO  Application            - Starting Application using Java 17.0.9 with PID 42266 (/Users/zhangbin/IdeaProjects/ai-rag-knowledge-mec202/dev-tech-app/target/classes started by zhangbin in /Users/zhangbin/IdeaProjects/ai-rag-knowledge-mec202)
+25-05-03.12:00:54.038 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+25-05-03.12:00:54.385 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+25-05-03.12:00:54.386 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+25-05-03.12:00:54.397 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 4 ms. Found 0 Redis repository interfaces.
+25-05-03.12:00:54.687 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port 8090 (http)
+25-05-03.12:00:54.691 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8090"]
+25-05-03.12:00:54.692 [main            ] INFO  StandardService        - Starting service [Tomcat]
+25-05-03.12:00:54.692 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/10.1.19]
+25-05-03.12:00:54.721 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+25-05-03.12:00:54.721 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 591 ms
+25-05-03.12:00:54.839 [main            ] INFO  Version                - Redisson 3.44.0
+25-05-03.12:00:54.855 [main            ] WARN  DnsServerAddressStreamProviders - Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+25-05-03.12:00:54.982 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 117.72.44.114/117.72.44.114:16379
+25-05-03.12:00:55.286 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 117.72.44.114/117.72.44.114:16379
+25-05-03.12:00:55.597 [main            ] WARN  AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'openAiChatClient' defined in class path resource [org/springframework/ai/autoconfigure/openai/OpenAiAutoConfiguration.class]: Failed to instantiate [org.springframework.ai.openai.OpenAiChatClient]: Factory method 'openAiChatClient' threw exception with message: OpenAI API key must be set
+25-05-03.12:00:55.604 [main            ] INFO  StandardService        - Stopping service [Tomcat]
+25-05-03.12:00:55.612 [main            ] INFO  ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+25-05-03.12:00:55.618 [main            ] ERROR SpringApplication      - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'openAiChatClient' defined in class path resource [org/springframework/ai/autoconfigure/openai/OpenAiAutoConfiguration.class]: Failed to instantiate [org.springframework.ai.openai.OpenAiChatClient]: Factory method 'openAiChatClient' threw exception with message: OpenAI API key must be set
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:651)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:639)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1335)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1165)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:959)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.b1n.dev.tech.Application.main(Application.java:11)
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.ai.openai.OpenAiChatClient]: Factory method 'openAiChatClient' threw exception with message: OpenAI API key must be set
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:177)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:647)
+	... 19 common frames omitted
+Caused by: java.lang.IllegalArgumentException: OpenAI API key must be set
+	at org.springframework.util.Assert.hasText(Assert.java:240)
+	at org.springframework.ai.autoconfigure.openai.OpenAiAutoConfiguration.openAiApi(OpenAiAutoConfiguration.java:96)
+	at org.springframework.ai.autoconfigure.openai.OpenAiAutoConfiguration.openAiChatClient(OpenAiAutoConfiguration.java:64)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:140)
+	... 20 common frames omitted
+25-05-03.12:01:28.095 [main            ] INFO  Application            - Starting Application using Java 17.0.9 with PID 42353 (/Users/zhangbin/IdeaProjects/ai-rag-knowledge-mec202/dev-tech-app/target/classes started by zhangbin in /Users/zhangbin/IdeaProjects/ai-rag-knowledge-mec202)
+25-05-03.12:01:28.096 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+25-05-03.12:01:28.466 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+25-05-03.12:01:28.468 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+25-05-03.12:01:28.480 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+25-05-03.12:01:28.795 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port 8090 (http)
+25-05-03.12:01:28.800 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8090"]
+25-05-03.12:01:28.801 [main            ] INFO  StandardService        - Starting service [Tomcat]
+25-05-03.12:01:28.801 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/10.1.19]
+25-05-03.12:01:28.834 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+25-05-03.12:01:28.834 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 639 ms
+25-05-03.12:01:28.958 [main            ] INFO  Version                - Redisson 3.44.0
+25-05-03.12:01:28.976 [main            ] WARN  DnsServerAddressStreamProviders - Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+25-05-03.12:01:29.100 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 117.72.44.114/117.72.44.114:16379
+25-05-03.12:01:29.349 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 117.72.44.114/117.72.44.114:16379
+25-05-03.12:01:29.657 [main            ] WARN  AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'openAiChatClient' defined in class path resource [org/springframework/ai/autoconfigure/openai/OpenAiAutoConfiguration.class]: Failed to instantiate [org.springframework.ai.openai.OpenAiChatClient]: Factory method 'openAiChatClient' threw exception with message: OpenAI API key must be set
+25-05-03.12:01:29.664 [main            ] INFO  StandardService        - Stopping service [Tomcat]
+25-05-03.12:01:29.673 [main            ] INFO  ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+25-05-03.12:01:29.678 [main            ] ERROR SpringApplication      - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'openAiChatClient' defined in class path resource [org/springframework/ai/autoconfigure/openai/OpenAiAutoConfiguration.class]: Failed to instantiate [org.springframework.ai.openai.OpenAiChatClient]: Factory method 'openAiChatClient' threw exception with message: OpenAI API key must be set
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:651)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:639)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1335)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1165)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:959)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.b1n.dev.tech.Application.main(Application.java:11)
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.ai.openai.OpenAiChatClient]: Factory method 'openAiChatClient' threw exception with message: OpenAI API key must be set
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:177)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:647)
+	... 19 common frames omitted
+Caused by: java.lang.IllegalArgumentException: OpenAI API key must be set
+	at org.springframework.util.Assert.hasText(Assert.java:240)
+	at org.springframework.ai.autoconfigure.openai.OpenAiAutoConfiguration.openAiApi(OpenAiAutoConfiguration.java:96)
+	at org.springframework.ai.autoconfigure.openai.OpenAiAutoConfiguration.openAiChatClient(OpenAiAutoConfiguration.java:64)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:140)
+	... 20 common frames omitted
+25-05-03.12:05:54.815 [main            ] INFO  Application            - Starting Application using Java 17.0.9 with PID 43017 (/Users/zhangbin/IdeaProjects/ai-rag-knowledge-mec202/dev-tech-app/target/classes started by zhangbin in /Users/zhangbin/IdeaProjects/ai-rag-knowledge-mec202)
+25-05-03.12:05:54.816 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+25-05-03.12:05:55.230 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+25-05-03.12:05:55.232 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+25-05-03.12:05:55.245 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+25-05-03.12:05:55.554 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port 8090 (http)
+25-05-03.12:05:55.559 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8090"]
+25-05-03.12:05:55.560 [main            ] INFO  StandardService        - Starting service [Tomcat]
+25-05-03.12:05:55.560 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/10.1.19]
+25-05-03.12:05:55.594 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+25-05-03.12:05:55.594 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 673 ms
+25-05-03.12:05:55.718 [main            ] INFO  Version                - Redisson 3.44.0
+25-05-03.12:05:55.737 [main            ] WARN  DnsServerAddressStreamProviders - Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+25-05-03.12:05:55.865 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 117.72.44.114/117.72.44.114:16379
+25-05-03.12:05:56.097 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 117.72.44.114/117.72.44.114:16379
+25-05-03.12:05:56.425 [main            ] WARN  AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'openAiChatClient' defined in class path resource [org/springframework/ai/autoconfigure/openai/OpenAiAutoConfiguration.class]: Failed to instantiate [org.springframework.ai.openai.OpenAiChatClient]: Factory method 'openAiChatClient' threw exception with message: OpenAI API key must be set
+25-05-03.12:05:56.432 [main            ] INFO  StandardService        - Stopping service [Tomcat]
+25-05-03.12:05:56.440 [main            ] INFO  ConditionEvaluationReportLogger - 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+25-05-03.12:05:56.446 [main            ] ERROR SpringApplication      - Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'openAiChatClient' defined in class path resource [org/springframework/ai/autoconfigure/openai/OpenAiAutoConfiguration.class]: Failed to instantiate [org.springframework.ai.openai.OpenAiChatClient]: Factory method 'openAiChatClient' threw exception with message: OpenAI API key must be set
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:651)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:639)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1335)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1165)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:562)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:522)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:325)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:975)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:959)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:624)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:754)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:456)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:334)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1354)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1343)
+	at com.b1n.dev.tech.Application.main(Application.java:11)
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.ai.openai.OpenAiChatClient]: Factory method 'openAiChatClient' threw exception with message: OpenAI API key must be set
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:177)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:647)
+	... 19 common frames omitted
+Caused by: java.lang.IllegalArgumentException: OpenAI API key must be set
+	at org.springframework.util.Assert.hasText(Assert.java:240)
+	at org.springframework.ai.autoconfigure.openai.OpenAiAutoConfiguration.openAiApi(OpenAiAutoConfiguration.java:96)
+	at org.springframework.ai.autoconfigure.openai.OpenAiAutoConfiguration.openAiChatClient(OpenAiAutoConfiguration.java:64)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:140)
+	... 20 common frames omitted
+25-05-03.12:09:00.704 [main            ] INFO  Application            - Starting Application using Java 17.0.9 with PID 43599 (/Users/zhangbin/IdeaProjects/ai-rag-knowledge-mec202/dev-tech-app/target/classes started by zhangbin in /Users/zhangbin/IdeaProjects/ai-rag-knowledge-mec202)
+25-05-03.12:09:00.705 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+25-05-03.12:09:01.117 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+25-05-03.12:09:01.119 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+25-05-03.12:09:01.139 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 9 ms. Found 0 Redis repository interfaces.
+25-05-03.12:09:01.403 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port 8090 (http)
+25-05-03.12:09:01.407 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8090"]
+25-05-03.12:09:01.408 [main            ] INFO  StandardService        - Starting service [Tomcat]
+25-05-03.12:09:01.408 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/10.1.19]
+25-05-03.12:09:01.438 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+25-05-03.12:09:01.439 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 700 ms
+25-05-03.12:09:01.614 [main            ] INFO  Version                - Redisson 3.44.0
+25-05-03.12:09:01.673 [main            ] WARN  DnsServerAddressStreamProviders - Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+25-05-03.12:09:01.841 [redisson-netty-1-5] INFO  ConnectionsHolder      - 1 connections initialized for 117.72.44.114/117.72.44.114:16379
+25-05-03.12:09:02.073 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 117.72.44.114/117.72.44.114:16379
+25-05-03.12:09:02.485 [main            ] INFO  Http11NioProtocol      - Starting ProtocolHandler ["http-nio-8090"]
+25-05-03.12:09:02.491 [main            ] INFO  TomcatWebServer        - Tomcat started on port 8090 (http) with context path ''
+25-05-03.12:09:02.501 [main            ] INFO  Application            - Started Application in 2.14 seconds (process running for 7.764)
+25-05-03.12:11:52.745 [main            ] INFO  Application            - Starting Application using Java 17.0.9 with PID 44112 (/Users/zhangbin/IdeaProjects/ai-rag-knowledge-mec202/dev-tech-app/target/classes started by zhangbin in /Users/zhangbin/IdeaProjects/ai-rag-knowledge-mec202)
+25-05-03.12:11:52.745 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+25-05-03.12:11:52.968 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+25-05-03.12:11:52.970 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+25-05-03.12:11:52.983 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+25-05-03.12:11:53.168 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port 8090 (http)
+25-05-03.12:11:53.172 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8090"]
+25-05-03.12:11:53.172 [main            ] INFO  StandardService        - Starting service [Tomcat]
+25-05-03.12:11:53.172 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/10.1.19]
+25-05-03.12:11:53.194 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+25-05-03.12:11:53.194 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 433 ms
+25-05-03.12:11:53.456 [main            ] INFO  Version                - Redisson 3.44.0
+25-05-03.12:11:53.471 [main            ] WARN  DnsServerAddressStreamProviders - Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+25-05-03.12:11:53.599 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 117.72.44.114/117.72.44.114:16379
+25-05-03.12:11:53.827 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 117.72.44.114/117.72.44.114:16379
+25-05-03.12:11:54.139 [main            ] INFO  Http11NioProtocol      - Starting ProtocolHandler ["http-nio-8090"]
+25-05-03.12:11:54.144 [main            ] INFO  TomcatWebServer        - Tomcat started on port 8090 (http) with context path ''
+25-05-03.12:11:54.149 [main            ] INFO  Application            - Started Application in 1.611 seconds (process running for 6.935)
+25-05-03.12:13:57.371 [http-nio-8090-exec-1] INFO  [/]                    - Initializing Spring DispatcherServlet 'dispatcherServlet'
+25-05-03.12:13:57.374 [http-nio-8090-exec-1] INFO  DispatcherServlet      - Initializing Servlet 'dispatcherServlet'
+25-05-03.12:13:57.377 [http-nio-8090-exec-1] INFO  DispatcherServlet      - Completed initialization in 3 ms
+25-05-03.12:15:53.585 [main            ] INFO  Application            - Starting Application using Java 17.0.9 with PID 44860 (/Users/zhangbin/IdeaProjects/ai-rag-knowledge-mec202/dev-tech-app/target/classes started by zhangbin in /Users/zhangbin/IdeaProjects/ai-rag-knowledge-mec202)
+25-05-03.12:15:53.585 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+25-05-03.12:15:53.888 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+25-05-03.12:15:53.889 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+25-05-03.12:15:53.901 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+25-05-03.12:15:54.081 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port 8090 (http)
+25-05-03.12:15:54.084 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8090"]
+25-05-03.12:15:54.085 [main            ] INFO  StandardService        - Starting service [Tomcat]
+25-05-03.12:15:54.085 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/10.1.19]
+25-05-03.12:15:54.110 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+25-05-03.12:15:54.110 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 507 ms
+25-05-03.12:15:54.371 [main            ] INFO  Version                - Redisson 3.44.0
+25-05-03.12:15:54.398 [main            ] WARN  DnsServerAddressStreamProviders - Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+25-05-03.12:15:54.545 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 117.72.44.114/117.72.44.114:16379
+25-05-03.12:15:54.803 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 117.72.44.114/117.72.44.114:16379
+25-05-03.12:15:55.089 [main            ] INFO  Http11NioProtocol      - Starting ProtocolHandler ["http-nio-8090"]
+25-05-03.12:15:55.092 [main            ] INFO  TomcatWebServer        - Tomcat started on port 8090 (http) with context path ''
+25-05-03.12:15:55.097 [main            ] INFO  Application            - Started Application in 1.725 seconds (process running for 7.058)
+25-05-03.12:16:05.541 [http-nio-8090-exec-1] INFO  [/]                    - Initializing Spring DispatcherServlet 'dispatcherServlet'
+25-05-03.12:16:05.541 [http-nio-8090-exec-1] INFO  DispatcherServlet      - Initializing Servlet 'dispatcherServlet'
+25-05-03.12:16:05.544 [http-nio-8090-exec-1] INFO  DispatcherServlet      - Completed initialization in 3 ms
+25-05-03.12:25:54.287 [main            ] INFO  Application            - Starting Application using Java 17.0.9 with PID 48138 (/Users/zhangbin/IdeaProjects/ai-rag-knowledge-mec202/dev-tech-app/target/classes started by zhangbin in /Users/zhangbin/IdeaProjects/ai-rag-knowledge-mec202)
+25-05-03.12:25:54.288 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+25-05-03.12:25:54.546 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+25-05-03.12:25:54.548 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+25-05-03.12:25:54.563 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+25-05-03.12:25:54.772 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port 8090 (http)
+25-05-03.12:25:54.777 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8090"]
+25-05-03.12:25:54.778 [main            ] INFO  StandardService        - Starting service [Tomcat]
+25-05-03.12:25:54.778 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/10.1.19]
+25-05-03.12:25:54.807 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+25-05-03.12:25:54.807 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 502 ms
+25-05-03.12:25:55.072 [main            ] INFO  Version                - Redisson 3.44.0
+25-05-03.12:25:55.087 [main            ] WARN  DnsServerAddressStreamProviders - Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+25-05-03.12:25:55.236 [redisson-netty-1-6] INFO  ConnectionsHolder      - 1 connections initialized for 117.72.44.114/117.72.44.114:16379
+25-05-03.12:25:55.453 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 117.72.44.114/117.72.44.114:16379
+25-05-03.12:25:55.744 [main            ] INFO  Http11NioProtocol      - Starting ProtocolHandler ["http-nio-8090"]
+25-05-03.12:25:55.747 [main            ] INFO  TomcatWebServer        - Tomcat started on port 8090 (http) with context path ''
+25-05-03.12:25:55.752 [main            ] INFO  Application            - Started Application in 1.698 seconds (process running for 6.945)
+25-05-03.12:26:01.418 [http-nio-8090-exec-1] INFO  [/]                    - Initializing Spring DispatcherServlet 'dispatcherServlet'
+25-05-03.12:26:01.419 [http-nio-8090-exec-1] INFO  DispatcherServlet      - Initializing Servlet 'dispatcherServlet'
+25-05-03.12:26:01.420 [http-nio-8090-exec-1] INFO  DispatcherServlet      - Completed initialization in 1 ms
+25-05-03.12:29:07.532 [main            ] INFO  Application            - Starting Application using Java 17.0.9 with PID 49197 (/Users/zhangbin/IdeaProjects/ai-rag-knowledge-mec202/dev-tech-app/target/classes started by zhangbin in /Users/zhangbin/IdeaProjects/ai-rag-knowledge-mec202)
+25-05-03.12:29:07.532 [main            ] INFO  Application            - The following 1 profile is active: "dev"
+25-05-03.12:29:07.743 [main            ] INFO  RepositoryConfigurationDelegate - Multiple Spring Data modules found, entering strict repository configuration mode
+25-05-03.12:29:07.745 [main            ] INFO  RepositoryConfigurationDelegate - Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+25-05-03.12:29:07.759 [main            ] INFO  RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+25-05-03.12:29:07.925 [main            ] INFO  TomcatWebServer        - Tomcat initialized with port 8090 (http)
+25-05-03.12:29:07.928 [main            ] INFO  Http11NioProtocol      - Initializing ProtocolHandler ["http-nio-8090"]
+25-05-03.12:29:07.929 [main            ] INFO  StandardService        - Starting service [Tomcat]
+25-05-03.12:29:07.929 [main            ] INFO  StandardEngine         - Starting Servlet engine: [Apache Tomcat/10.1.19]
+25-05-03.12:29:07.950 [main            ] INFO  [/]                    - Initializing Spring embedded WebApplicationContext
+25-05-03.12:29:07.950 [main            ] INFO  ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 405 ms
+25-05-03.12:29:08.168 [main            ] INFO  Version                - Redisson 3.44.0
+25-05-03.12:29:08.182 [main            ] WARN  DnsServerAddressStreamProviders - Can not find io.netty.resolver.dns.macos.MacOSDnsServerAddressStreamProvider in the classpath, fallback to system defaults. This may result in incorrect DNS resolutions on MacOS. Check whether you have a dependency on 'io.netty:netty-resolver-dns-native-macos'
+25-05-03.12:29:08.314 [redisson-netty-1-4] INFO  ConnectionsHolder      - 1 connections initialized for 117.72.44.114/117.72.44.114:16379
+25-05-03.12:29:08.551 [redisson-netty-1-13] INFO  ConnectionsHolder      - 5 connections initialized for 117.72.44.114/117.72.44.114:16379
+25-05-03.12:29:08.821 [main            ] INFO  Http11NioProtocol      - Starting ProtocolHandler ["http-nio-8090"]
+25-05-03.12:29:08.825 [main            ] INFO  TomcatWebServer        - Tomcat started on port 8090 (http) with context path ''
+25-05-03.12:29:08.829 [main            ] INFO  Application            - Started Application in 1.472 seconds (process running for 6.75)
+25-05-03.12:29:15.530 [http-nio-8090-exec-1] INFO  [/]                    - Initializing Spring DispatcherServlet 'dispatcherServlet'
+25-05-03.12:29:15.531 [http-nio-8090-exec-1] INFO  DispatcherServlet      - Initializing Servlet 'dispatcherServlet'
+25-05-03.12:29:15.532 [http-nio-8090-exec-1] INFO  DispatcherServlet      - Completed initialization in 1 ms
