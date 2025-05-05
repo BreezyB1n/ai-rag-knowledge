@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const loadRagOptions = () => {
         const ragSelect = document.getElementById('ragSelect');
 
-        fetch('http://localhost:8090/api/v1/rag/query_rag_tag_list')
+        fetch('http://117.72.44.114:8090/api/v1/rag/query_rag_tag_list')
             .then(response => response.json())
             .then(data => {
                 if (data.code === '0000' && data.data) {
@@ -226,8 +226,8 @@ function appendMessage(content, isAssistant = false, saveToStorage = true) {
     }
 
     // 选项值，
-    // 组装01；http://localhost:8090/api/v1/ollama/generate_stream?message=Hello&model=deepseek-r1:1.5b
-    // 组装02；http://localhost:8090/api/v1/openai/generate_stream?message=Hello&model=gpt-4o
+    // 组装01；http://117.72.44.114:8090/api/v1/ollama/generate_stream?message=Hello&model=deepseek-r1:1.5b
+    // 组装02；http://117.72.44.114:8090/api/v1/openai/generate_stream?message=Hello&model=gpt-4o
     const ragTag = document.getElementById('ragSelect').value;
     const aiModelSelect = document.getElementById('aiModel');
     const aiModelValue = aiModelSelect.value; // 获取选中的 aiModel 的 value
@@ -236,9 +236,9 @@ function appendMessage(content, isAssistant = false, saveToStorage = true) {
     let url;
 
     if (ragTag) {
-        url = `http://localhost:8090/api/v1/${aiModelValue}/generate_stream_rag?message=${encodeURIComponent(message)}&ragTag=${encodeURIComponent(ragTag)}&model=${encodeURIComponent(aiModelModel)}`;
+        url = `http://117.72.44.114:8090/api/v1/${aiModelValue}/generate_stream_rag?message=${encodeURIComponent(message)}&ragTag=${encodeURIComponent(ragTag)}&model=${encodeURIComponent(aiModelModel)}`;
     } else {
-        url = `http://localhost:8090/api/v1/${aiModelValue}/generate_stream?message=${encodeURIComponent(message)}&model=${encodeURIComponent(aiModelModel)}`;
+        url = `http://117.72.44.114:8090/api/v1/${aiModelValue}/generate_stream?message=${encodeURIComponent(message)}&model=${encodeURIComponent(aiModelModel)}`;
     }
 
     currentEventSource = new EventSource(url);
